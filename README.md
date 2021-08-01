@@ -2,6 +2,8 @@
 
 # kuzminki-play-demo
 
+kuzminki-play-demo is a demo project for the [kuzminki](https://github.com/karimagnusson/kuzminki) Scala/PostgreSQL database access library.
+
 #### Setup
 
 ```sbt
