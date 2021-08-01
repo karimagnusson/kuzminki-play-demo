@@ -2,7 +2,9 @@
 
 # kuzminki-play-demo
 
-kuzminki-play-demo is a demo project for the [kuzminki](https://github.com/karimagnusson/kuzminki) Scala/PostgreSQL database access library.
+kuzminki-play-demo is a demo project for the [kuzminki](https://github.com/karimagnusson/kuzminki) Scala/PostgreSQL database access library. It offers HTTP endpoints using the [Play](https://github.com/playframework/playframework) web framework and allows you to familiarize yourself with how to build queries with and play around with it.
+
+If you run into any problems feel free to post on [Gitter](https://gitter.im/kuzminki/community) or contact me directly on telegram @karimagnusson.
 
 #### Setup
 
@@ -10,7 +12,7 @@ kuzminki-play-demo is a demo project for the [kuzminki](https://github.com/karim
 sbt new playframework/play-scala-seed.g8
 ```
 
-Then replace `app`, `conf`, `build.sbt`.
+Then replace `app`, `conf`, `build.sbt` with the ones in this project.
 
 Also move the folder `csv` into the root of the new project.
 
