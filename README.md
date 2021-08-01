@@ -2,7 +2,7 @@
 
 # kuzminki-play-demo
 
-kuzminki-play-demo is a demo project for the [kuzminki](https://github.com/karimagnusson/kuzminki) Scala/PostgreSQL database access library. It offers HTTP endpoints using the [Play](https://github.com/playframework/playframework) web framework and allows you to familiarize yourself and play around with how to build queries.
+kuzminki-play-demo is a demo project for the [kuzminki](https://github.com/karimagnusson/kuzminki) Scala/PostgreSQL database access library. It offers HTTP endpoints using the [Play](https://github.com/playframework/playframework) web framework and allows you to familiarize yourself and play around with how to make database requests.
 
 If you run into any problems feel free to post on [Gitter](https://gitter.im/kuzminki/community) or contact me directly on telegram @karimagnusson.
 
