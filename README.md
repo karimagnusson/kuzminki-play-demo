@@ -1,6 +1,8 @@
+[![Gitter](https://img.shields.io/gitter/room/rdbc-io/rdbc.svg?style=flat-square)](https://gitter.im/kuzminki/community)
+
 # kuzminki-play-demo
 
-##### Setup
+#### Setup
 
 ```sbt
 sbt new playframework/play-scala-seed.g8
@@ -10,11 +12,11 @@ Then replace `app`, `conf`, `build.sbt`.
 
 Also move the folder `csv` into the root of the new project.
 
-##### Database
+#### Database
 
-###### Download and setup [PostgreSQL Sample Database](https://www.postgresqltutorial.com/postgresql-sample-database/)
+Download and setup [PostgreSQL Sample Database](https://www.postgresqltutorial.com/postgresql-sample-database/)
 
-##### Config `conf/application.conf`
+#### Config `conf/application.conf`
 
 ```sbt
 kuzminki = {
@@ -27,7 +29,12 @@ kuzminki = {
 }
 ```
 
-##### Postman
+#### Postman
 
-###### If you use [Postman](https://www.postman.com/) you can import `postman/play-demo.json` where all the endpoints are set up.
+If you use [Postman](https://www.postman.com/) you can import `postman/play-demo.json` where all the endpoints are set up.
 
+#### Run
+
+```sbt
+sbt run
+```
