@@ -6,8 +6,8 @@
 sbt new playframework/play-scala-seed.g8
 ```
 
-###### Then replace `app`, `conf`, `build.sbt`.
-###### Move also the folder `csv` into the root of the new project.
+Then replace `app`, `conf`, `build.sbt`.
+Also move the folder `csv` into the root of the new project.
 
 ##### Database
 
