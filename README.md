@@ -1,10 +1,6 @@
-[![Gitter](https://img.shields.io/gitter/room/rdbc-io/rdbc.svg?style=flat-square)](https://gitter.im/kuzminki/community)
-
 # kuzminki-play-demo
 
-kuzminki-play-demo is a demo project for the [kuzminki](https://github.com/karimagnusson/kuzminki) Scala/PostgreSQL database access library. It offers HTTP endpoints using the [Play](https://github.com/playframework/playframework) web framework and allows you to familiarize yourself and play around with how to make database requests.
-
-If you run into any problems feel free to post on [Gitter](https://gitter.im/kuzminki/community) or contact me directly on telegram @karimagnusson.
+kuzminki-play-demo is a demo project for the [kuzminki-akka](https://github.com/karimagnusson/kuzminki-akka) Scala/PostgreSQL database access library. It offers HTTP endpoints using the [Play](https://github.com/playframework/playframework) web framework and allows you to familiarize yourself and play around with how to make database requests.
 
 #### Setup
 
@@ -14,23 +10,21 @@ sbt new playframework/play-scala-seed.g8
 
 Then replace `app`, `conf`, `build.sbt` with the ones in this project.
 
-Also move the folder `csv` into the root of the new project.
-
 #### Database
 
-Download and setup [PostgreSQL Sample Database](https://www.postgresqltutorial.com/postgresql-sample-database/)
+```sql
+CREAE DATABASE world;
+```
+
+```bash
+psql -d world < world.sql
+```
 
 #### Config `conf/application.conf`
-
+Replace username and password
 ```sbt
-kuzminki = {
-  host = "localhost"
-  port = 5432
-  user = "<USERNAME>"
-  password = "<PASSWORD>"
-  db = "dvdrental"
-  threads = 10
-}
+user = "<USERNAME>"
+password = "<PASSWORD>"
 ```
 
 #### Postman

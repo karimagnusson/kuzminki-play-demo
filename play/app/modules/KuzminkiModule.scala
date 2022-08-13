@@ -12,7 +12,10 @@ class KuzminkiPlayModule extends AbstractModule {
 }
 
 
-class KuzminkiPlayStop @Inject()(lifecycle: ApplicationLifecycle) {
+class KuzminkiPlayStop @Inject()(
+  lifecycle: ApplicationLifecycle,
+  kuzminkiPlay: KuzminkiPlay
+) {
   lifecycle.addStopHook { () =>
     KuzminkiPlay.stop()
   }

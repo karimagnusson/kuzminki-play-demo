@@ -1,0 +1,37 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+
+# CountryController
+
+GET     /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /country/result1/:code        controllers.CountryController.countryResult1(code: String)
+
+GET     /country/result2/:code        controllers.CountryController.countryResult2(code: String)
+
+GET     /country/result3/:code        controllers.CountryController.countryResult3(code: String)
+
+GET     /top/cities/:code             controllers.CountryController.topCities(code: String)
+
+GET     /country/optional       controllers.CountryController.countryOptional
+
+GET     /country/andor/:continent          controllers.CountryController.countryAndOr(continent: String)
+
+GET     /continent/population/:continent          controllers.CountryController.continentPopulation(continent: String)
+
+# TripController
+
+GET       /trip/list      controllers.TripController.tripList
+
+POST      /trip/add       controllers.TripController.addTrip
+
+PATCH     /trip/update    controllers.TripController.updateTrip
+
+DELETE    /trip/delete    controllers.TripController.deleteTrip

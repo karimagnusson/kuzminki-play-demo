@@ -6,137 +6,107 @@
 	},
 	"item": [
 		{
-			"name": "/actor/result1",
+			"name": "/country/result1/:code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/actor/result1",
+					"raw": "{{API_URL}}/country/result1/ind",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"actor",
-						"result1"
+						"country",
+						"result1",
+						"ind"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/actor/result2",
+			"name": "/country/result1/:code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/actor/result2",
+					"raw": "{{API_URL}}/country/result2/ind",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"actor",
-						"result2"
+						"country",
+						"result2",
+						"ind"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/actor/result3",
+			"name": "/country/result1/:code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/actor/result3",
+					"raw": "{{API_URL}}/country/result3/ind",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"actor",
-						"result3"
+						"country",
+						"result3",
+						"ind"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/actor/result4",
+			"name": "/top/cities/:code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/actor/result4",
+					"raw": "{{API_URL}}/top/cities/bra",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"actor",
-						"result4"
+						"top",
+						"cities",
+						"bra"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/actor/result5/85",
+			"name": "/country/optional",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/actor/result5/85",
+					"raw": "{{API_URL}}/country/optional?continent=Asia&population_gt=10000000&population_lt=100000000",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"actor",
-						"result5",
-						"85"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/film/modified-cols/100",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/film/modified-cols/100",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"film",
-						"modified-cols",
-						"100"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/film/search-option",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/film/search-option?description=Robot&year=2006",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"film",
-						"search-option"
+						"country",
+						"optional"
 					],
 					"query": [
 						{
-							"key": "description",
-							"value": "Robot"
+							"key": "continent",
+							"value": "Asia"
 						},
 						{
-							"key": "year",
-							"value": "2006"
+							"key": "population_gt",
+							"value": "10000000"
+						},
+						{
+							"key": "population_lt",
+							"value": "100000000"
 						}
 					]
 				}
@@ -144,216 +114,50 @@
 			"response": []
 		},
 		{
-			"name": "/film/search-or/agent",
+			"name": "/country/andor/:continent",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/film/search-or/agent",
+					"raw": "{{API_URL}}/country/andor/Asia",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"film",
-						"search-or",
-						"agent"
+						"country",
+						"andor",
+						"Asia"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/film/offset/2003/20",
+			"name": "/continent/population/:continent",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/film/offset/2003/20",
+					"raw": "{{API_URL}}/continent/population/Asia",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"film",
-						"offset",
-						"2003",
-						"20"
+						"continent",
+						"population",
+						"Asia"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/film/stream",
+			"name": "/trip/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/film/stream",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"film",
-						"stream"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/actors/film-join/100",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/actors/film-join/100",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"actors",
-						"film-join",
-						"100"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/actors/film-nested/100",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/actors/film-nested/100",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"actors",
-						"film-nested",
-						"100"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/customer/payment/1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/customer/payment/1",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"customer",
-						"payment",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/customer/or-and/1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/customer/or-and/1",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"customer",
-						"or-and",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/film/length",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/film/length",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"film",
-						"length"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/rental/data",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/rental/data",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"rental",
-						"data"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/customer/spending/1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/customer/spending/1",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"customer",
-						"spending",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/customer/low-spending/1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/customer/low-spending/1",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"customer",
-						"low-spending",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/insert/actor1",
-			"request": {
-				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -364,7 +168,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"first_name\": \"Sterling\",\n\t\"last_name\": \"Wolfe\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -372,99 +176,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{API_URL}}/insert/actor2",
+					"raw": "{{API_URL}}/trip/list",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"insert",
-						"actor2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/insert/actor2",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"first_name\": \"Sterling\",\n\t\"last_name\": \"Wolfe\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/insert/actor2",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"insert",
-						"actor2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/insert/actor3",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"first_name\": \"Heli\",\n\t\"last_name\": \"Finkenzeller\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/insert/actor3",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"insert",
-						"actor3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/insert/actors/list",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/insert/actors/list",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"insert",
-						"actors",
+						"trip",
 						"list"
 					]
 				}
@@ -472,83 +189,7 @@
 			"response": []
 		},
 		{
-			"name": "/insert/actors/stream-list",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/insert/actors/stream-list",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"insert",
-						"actors",
-						"stream-list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/insert/store/do-nothing",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/insert/store/do-nothing",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"insert",
-						"store",
-						"do-nothing"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/insert/store/do-update",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/insert/store/do-update",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"insert",
-						"store",
-						"do-update"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/insert/actors/from-customer",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/insert/actors/from-customer",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"insert",
-						"actors",
-						"from-customer"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/insert/actors/from-file",
+			"name": "/trip/add",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -561,7 +202,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"file_name\": \"actors.txt\"\n}",
+					"raw": "{\n\t\"city_id\": 1466,\n\t\"price\": 1000\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -569,23 +210,22 @@
 					}
 				},
 				"url": {
-					"raw": "{{API_URL}}/insert/actors/from-file",
+					"raw": "{{API_URL}}/trip/add",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"insert",
-						"actors",
-						"from-file"
+						"trip",
+						"add"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/insert/staff/from-file",
+			"name": "/trip/update",
 			"request": {
-				"method": "POST",
+				"method": "PATCH",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -596,7 +236,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"file_name\": \"staff.csv\"\n}",
+					"raw": "{\n\t\"id\": 1,\n\t\"price\": 1500\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -604,251 +244,26 @@
 					}
 				},
 				"url": {
-					"raw": "{{API_URL}}/insert/staff/from-file",
+					"raw": "{{API_URL}}/trip/update",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"insert",
-						"staff",
-						"from-file"
+						"trip",
+						"update"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/update/staff1",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"staff_id\": 24\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/update/staff1",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"update",
-						"staff1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/update/staff2",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"staff_id\": 25,\n\t\"email\": \"G.Flores@hotmail.com\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/update/staff2",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"update",
-						"staff2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/update/staff3",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"staff_id\": 34,\n\t\"email\": \"J.Green@hotmail.com\",\n\t\"is_active\": false\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/update/staff3",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"update",
-						"staff3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/update/film/increment/100",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/update/film/increment/100",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"update",
-						"film",
-						"increment",
-						"100"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/update/staff/cache",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"old_email\": \"Leriel.Hernandez@gmail.com\",\n    \"new_email\": \"L.Hernandez@gmail.com\",\n    \"is_active\": false\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/update/staff/cache",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"update",
-						"staff",
-						"cache"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/update/staff/from-file",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"file_name\": \"staff-to-update.csv\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/update/staff/from-file",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"update",
-						"staff",
-						"from-file"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/delete/inactive-staff",
+			"name": "/trip/delete",
 			"request": {
 				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{API_URL}}/delete/inactive-staff",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"delete",
-						"inactive-staff"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/delete/staff/from-file",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"file_name\": \"staff-to-delete.txt\"\n}",
+					"raw": "{\"id\": 1}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -856,86 +271,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{API_URL}}/delete/staff/from-file",
+					"raw": "{{API_URL}}/trip/delete",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"delete",
-						"staff",
-						"from-file"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/json/films/2005",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/json/films/2005",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"json",
-						"films",
-						"2005"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/json/film/253",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/json/film/253",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"json",
-						"film",
-						"253"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/json/insert",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"first_name\": \"Whitney\",\n\t\"last_name\": \"Sullins\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/json/insert",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"json",
-						"insert"
+						"trip",
+						"delete"
 					]
 				}
 			},
