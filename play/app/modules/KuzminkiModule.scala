@@ -1,4 +1,4 @@
-package kuzminki.module
+package modules
 
 import javax.inject.Inject
 import com.google.inject.AbstractModule

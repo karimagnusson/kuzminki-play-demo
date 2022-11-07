@@ -7,31 +7,87 @@
 GET     /                           controllers.HomeController.index()
 
 # Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-# CountryController
 
-GET     /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
+# SelectPlayJsonCtl
 
-GET     /country/result1/:code        controllers.CountryController.countryResult1(code: String)
+GET /select/country/:code         controllers.SelectPlayJsonCtl.selectCountry(code: String)
 
-GET     /country/result2/:code        controllers.CountryController.countryResult2(code: String)
+GET /select/cities/:code          controllers.SelectPlayJsonCtl.selectCities(code: String)
 
-GET     /country/result3/:code        controllers.CountryController.countryResult3(code: String)
+GET /select/lang/:code            controllers.SelectPlayJsonCtl.selectLanguage(code: String)
 
-GET     /top/cities/:code             controllers.CountryController.topCities(code: String)
+GET /select/country-cities/:code  controllers.SelectPlayJsonCtl.selectCountryCities(code: String)
 
-GET     /country/optional       controllers.CountryController.countryOptional
+GET /select/optional              controllers.SelectPlayJsonCtl.selectOptional
 
-GET     /country/andor/:continent          controllers.CountryController.countryAndOr(continent: String)
+GET /select/and-or/:cont          controllers.SelectPlayJsonCtl.selectAndOr(cont: String)
 
-GET     /continent/population/:continent          controllers.CountryController.continentPopulation(continent: String)
+GET /select/population/:cont      controllers.SelectPlayJsonCtl.selectPopulation(cont: String)
 
-# TripController
+# SelectDbJsonCtl
 
-GET       /trip/list      controllers.TripController.tripList
+GET /select/dbjs/country/:code         controllers.SelectDbJsonCtl.selectCountry(code: String)
 
-POST      /trip/add       controllers.TripController.addTrip
+GET /select/dbjs/cities/:code          controllers.SelectDbJsonCtl.selectCities(code: String)
 
-PATCH     /trip/update    controllers.TripController.updateTrip
+GET /select/dbjs/lang/:code            controllers.SelectDbJsonCtl.selectLanguage(code: String)
 
-DELETE    /trip/delete    controllers.TripController.deleteTrip
+GET /select/dbjs/country-cities/:code  controllers.SelectDbJsonCtl.selectCountryCities(code: String)
+
+GET /select/dbjs/optional              controllers.SelectDbJsonCtl.selectOptional
+
+GET /select/dbjs/and-or/:cont          controllers.SelectDbJsonCtl.selectAndOr(cont: String)
+
+GET /select/dbjs/population/:cont      controllers.SelectDbJsonCtl.selectPopulation(cont: String)
+
+# OperationsCtl
+
+POST /insert/trip                 controllers.OperationsCtl.insertTrip
+
+PATCH /update/trip                controllers.OperationsCtl.updateTrip
+
+DELETE /delete/trip               controllers.OperationsCtl.deleteTrip
+
+# JsonbCtl
+
+GET /cache/select/country/:code   controllers.CacheCtl.selectCountry(code: String)
+
+GET /cache/join/:pop/:gnp         controllers.CacheCtl.selectJoin(pop: Int, gnp: Int)
+
+POST /cache/insert/trip           controllers.CacheCtl.insertTrip
+
+PATCH /cache/update/trip          controllers.CacheCtl.updateTrip
+
+DELETE /cache/delete/trip         controllers.CacheCtl.deleteTrip
+
+# JsonbCtl
+
+GET /jsonb/country/:code          controllers.JsonbCtl.jsonbCountry(code: String)
+
+GET /jsonb/capital/:name          controllers.JsonbCtl.jsonbCapital(name: String)
+
+GET /jsonb/city/population        controllers.JsonbCtl.jsonbCityPopulation
+
+GET /jsonb/capital-avg/:cont      controllers.JsonbCtl.jsonbCapitalAvg(cont: String)
+
+PATCH /jsonb/add/phone            controllers.JsonbCtl.addPhone
+
+PATCH /jsonb/del/phone            controllers.JsonbCtl.delPhone
+
+# ArrayCtl
+
+GET /array/langs/:code            controllers.ArrayCtl.arrayLangs(code: String)
+
+PATCH /array/add/lang             controllers.ArrayCtl.arrayAdd
+
+PATCH /array/del/lang             controllers.ArrayCtl.arrayDel
+
+# SelectTypeCtl
+
+GET /select/type/country/:code        controllers.SelectTypeCtl.selectCountry(code: String)
+
+
+
+

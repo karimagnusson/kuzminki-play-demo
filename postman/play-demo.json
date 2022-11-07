@@ -1,23 +1,26 @@
 {
 	"info": {
-		"_postman_id": "91ae069e-7ba0-464b-9f98-6b1e2cffc021",
+		"_postman_id": "636c96a0-a1fa-4b60-99ee-b56fe058c8eb",
 		"name": "Kuzminki Play Demo",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6791813"
 	},
 	"item": [
 		{
-			"name": "/country/result1/:code",
+			"name": "/select/country/:code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/country/result1/ind",
+					"raw": "http://localhost:9000/select/country/ind",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
+						"select",
 						"country",
-						"result1",
 						"ind"
 					]
 				}
@@ -25,87 +28,95 @@
 			"response": []
 		},
 		{
-			"name": "/country/result1/:code",
+			"name": "/select/cities/:code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/country/result2/ind",
+					"raw": "http://localhost:9000/select/cities/ind",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
-						"country",
-						"result2",
-						"ind"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/country/result1/:code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/country/result3/ind",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"country",
-						"result3",
-						"ind"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/top/cities/:code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/top/cities/bra",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"top",
+						"select",
 						"cities",
-						"bra"
+						"ind"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/country/optional",
+			"name": "/select/lang/:code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/country/optional?continent=Asia&population_gt=10000000&population_lt=100000000",
+					"raw": "http://localhost:9000/select/lang/FRA",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
-						"country",
+						"select",
+						"lang",
+						"FRA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/country-cities/:code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/country-cities/FRA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"country-cities",
+						"FRA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/optional",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/optional?cont=Asia&pop_gt=10000000&pop_lt=100000000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
 						"optional"
 					],
 					"query": [
 						{
-							"key": "continent",
+							"key": "cont",
 							"value": "Asia"
 						},
 						{
-							"key": "population_gt",
+							"key": "pop_gt",
 							"value": "10000000"
 						},
 						{
-							"key": "population_lt",
+							"key": "pop_lt",
 							"value": "100000000"
 						}
 					]
@@ -114,18 +125,20 @@
 			"response": []
 		},
 		{
-			"name": "/country/andor/:continent",
+			"name": "/select/and-or/:cont",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/country/andor/Asia",
+					"raw": "http://localhost:9000/select/and-or/Asia",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
-						"country",
-						"andor",
+						"select",
+						"and-or",
 						"Asia"
 					]
 				}
@@ -133,17 +146,19 @@
 			"response": []
 		},
 		{
-			"name": "/continent/population/:continent",
+			"name": "/select/population/:cont",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/continent/population/Asia",
+					"raw": "http://localhost:9000/select/population/Asia",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
-						"continent",
+						"select",
 						"population",
 						"Asia"
 					]
@@ -152,7 +167,94 @@
 			"response": []
 		},
 		{
-			"name": "/trip/list",
+			"name": "/insert/trip",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"city_id\": 1466,\n\t\"price\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/insert/trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"insert",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/update/trip",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"price\": 1500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/update/trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"update",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/delete/trip",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/delete/trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"delete",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/cache/select/country/:code",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -176,20 +278,46 @@
 					}
 				},
 				"url": {
-					"raw": "{{API_URL}}/trip/list",
+					"raw": "http://localhost:9000/cache/select/country/ind",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
-						"trip",
-						"list"
+						"cache",
+						"select",
+						"country",
+						"ind"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/trip/add",
+			"name": "/cache/join/:pop/:gnp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/cache/join/10000000/140000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"cache",
+						"join",
+						"10000000",
+						"140000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/cache/insert/trip",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -210,20 +338,23 @@
 					}
 				},
 				"url": {
-					"raw": "{{API_URL}}/trip/add",
+					"raw": "http://localhost:9000/cache/insert/trip",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
-						"trip",
-						"add"
+						"cache",
+						"insert",
+						"trip"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/trip/update",
+			"name": "/cache/update/trip",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -236,7 +367,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\": 1,\n\t\"price\": 1500\n}",
+					"raw": "{\n\t\"id\": 2,\n\t\"price\": 1500\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -244,26 +375,29 @@
 					}
 				},
 				"url": {
-					"raw": "{{API_URL}}/trip/update",
+					"raw": "http://localhost:9000/cache/update/trip",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
-						"trip",
-						"update"
+						"cache",
+						"update",
+						"trip"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/trip/delete",
+			"name": "/cache/delete/trip",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\": 1}",
+					"raw": "{\"id\": 2}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -271,13 +405,348 @@
 					}
 				},
 				"url": {
-					"raw": "{{API_URL}}/trip/delete",
+					"raw": "http://localhost:9000/cache/delete/trip",
+					"protocol": "http",
 					"host": [
-						"{{API_URL}}"
+						"localhost"
 					],
+					"port": "9000",
 					"path": [
-						"trip",
-						"delete"
+						"cache",
+						"delete",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jsonb/country/:code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/jsonb/country/ind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"jsonb",
+						"country",
+						"ind"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jsonb/capital/:name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/jsonb/capital/Paris",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"jsonb",
+						"capital",
+						"Paris"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jsonb/city/population",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/jsonb/city/population",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"jsonb",
+						"city",
+						"population"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jsonb/capital-avg:cont",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/jsonb/capital-avg/Asia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"jsonb",
+						"capital-avg",
+						"Asia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jsonb/add/phone",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone\": \"+91\",\n    \"code\": \"IND\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/jsonb/add/phone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"jsonb",
+						"add",
+						"phone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jsonb/del/phone",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"IND\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/jsonb/del/phone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"jsonb",
+						"del",
+						"phone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/dbjs/country/:code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/dbjs/country/ind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"dbjs",
+						"country",
+						"ind"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/dbjs/cities/:code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/cities/ind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"cities",
+						"ind"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/dbjs/lang/:name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/dbjs/lang/FRA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"dbjs",
+						"lang",
+						"FRA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/dbjs/country-cities/:code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/dbjs/country-cities/FRA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"dbjs",
+						"country-cities",
+						"FRA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/dbjs/optional",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/dbjs/optional?cont=Asia&pop_gt=10000000&pop_lt=100000000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"dbjs",
+						"optional"
+					],
+					"query": [
+						{
+							"key": "cont",
+							"value": "Asia"
+						},
+						{
+							"key": "pop_gt",
+							"value": "10000000"
+						},
+						{
+							"key": "pop_lt",
+							"value": "100000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/dbjs/and-or/:cont",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/dbjs/and-or/Asia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"dbjs",
+						"and-or",
+						"Asia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/dbjs/population/:cont",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/dbjs/population/Asia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"dbjs",
+						"population",
+						"Asia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/select/type/country/:code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/select/type/country/ind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"select",
+						"type",
+						"country",
+						"ind"
 					]
 				}
 			},

@@ -1,6 +1,14 @@
 # kuzminki-play-demo
 
-kuzminki-play-demo is a demo project for the [kuzminki-akka](https://github.com/karimagnusson/kuzminki-akka) Scala/PostgreSQL database access library. It offers HTTP endpoints using the [Play](https://github.com/playframework/playframework) web framework and allows you to familiarize yourself and play around with how to make database requests.
+kuzminki-play-demo is an example REST API using [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) and [Play](https://github.com/playframework/playframework).
+
+This project uses Scala 2.13.8 and Play 2.8.18
+
+Examples:
+- Select, insert, update, delete
+- Cached queries
+- Jsonb field
+- Array field
 
 #### Setup
 
@@ -13,11 +21,11 @@ Then replace `app`, `conf`, `build.sbt` with the ones in this project.
 #### Database
 
 ```sql
-CREAE DATABASE world;
+CREATE DATABASE world;
 ```
 
 ```bash
-psql -d world < world.sql
+psql world < db/world.pg
 ```
 
 #### Config `conf/application.conf`
