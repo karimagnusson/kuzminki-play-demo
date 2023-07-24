@@ -25,7 +25,7 @@ class DateCtl @Inject()(
   val btcPrice = Model.get[BtcPrice]
 
   def btcHour = Action.async { request =>
-    val params = request.queryString.map(p => p._1 -> p._2(0)).toMap
+    val params = request.queryString.map(p => p._1 -> p._2(0))
     sql
       .select(btcPrice)
       .colsNamed(t => Seq(
@@ -45,7 +45,7 @@ class DateCtl @Inject()(
   }
 
   def btcQuarterAvg = Action.async { request =>
-    val params = request.queryString.map(p => p._1 -> p._2(0)).toMap
+    val params = request.queryString.map(p => p._1 -> p._2(0))
     sql
       .select(btcPrice)
       .colsNamed(t => Seq(
@@ -62,7 +62,7 @@ class DateCtl @Inject()(
   }
 
   def btcBreak = Action.async { request =>
-    val params = request.queryString.map(p => p._1 -> p._2(0)).toMap
+    val params = request.queryString.map(p => p._1 -> p._2(0))
     sql
       .select(btcPrice)
       .colsNamed(t => Seq(

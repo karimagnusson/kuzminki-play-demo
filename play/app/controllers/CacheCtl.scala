@@ -26,6 +26,8 @@ class CacheCtl @Inject()(
   val lang = Model.get[Lang]
   val trip = Model.get[Trip]
 
+  // cached queries
+
   val selectCountryStm = sql
     .select(country)
     .colsNamed(t => Seq(
