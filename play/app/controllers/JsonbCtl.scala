@@ -11,13 +11,14 @@ import modules.KuzminkiPlay
 import kuzminki.api._
 import kuzminki.fn._
 
+// Examples for jsonb field.
 
 @Singleton
 class JsonbCtl @Inject()(
   val controllerComponents: ControllerComponents,
   val kuzminkiPlay: KuzminkiPlay
-) (implicit ec: ExecutionContext) extends BaseController
-                                     with PlayJson {
+)(implicit ec: ExecutionContext) extends BaseController
+                                    with PlayJson {
 
   implicit val db = kuzminkiPlay.db
 
@@ -29,8 +30,8 @@ class JsonbCtl @Inject()(
       .colsNamed(t => Seq(
         t.id,
         t.code,
-        t.langs,
-        t.data
+        t.langs,  // array field
+        t.data    // jsonb field
       ))
       .where(_.code === code.toUpperCase)
       .runHeadOptAs[JsValue]
@@ -44,7 +45,7 @@ class JsonbCtl @Inject()(
         t.id,
         t.code,
         t.langs,
-        (t.data || t.cities).as("data")
+        (t.data || t.cities).as("data") // add cities to data
       ))
       .where(_.data -> "capital" ->> "name" === name)
       .runHeadOptAs[JsValue]
@@ -89,7 +90,7 @@ class JsonbCtl @Inject()(
 
     sql
       .update(countryData)
-      .set(_.data += Json.obj("phone" -> phone))
+      .set(_.data += Json.obj("phone" -> phone)) // add "phone" to object
       .where(_.code === code)
       .returningNamed(t => Seq(
         t.id,
@@ -105,7 +106,7 @@ class JsonbCtl @Inject()(
 
     sql
       .update(countryData)
-      .set(_.data -= "phone")
+      .set(_.data -= "phone") // remove "phone" from the object
       .where(_.code === code)
       .returningNamed(t => Seq(
         t.id,

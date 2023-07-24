@@ -15,7 +15,7 @@ import kuzminki.api._
 class SelectTypeCtl @Inject()(
   val controllerComponents: ControllerComponents,
   val kuzminkiPlay: KuzminkiPlay
-) (implicit ec: ExecutionContext) extends BaseController {
+)(implicit ec: ExecutionContext) extends BaseController {
 
   implicit val db = kuzminkiPlay.db
 
@@ -26,7 +26,7 @@ class SelectTypeCtl @Inject()(
   def selectCountry(code: String) = Action.async {
     sql
       .select(country)
-      .colsType(_.basic)
+      .colsType(_.basic) // "basic" is defined in the table
       .where(_.code === code.toUpperCase)
       .runHeadOpt
       .map {

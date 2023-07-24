@@ -11,13 +11,19 @@ import modules.KuzminkiPlay
 import kuzminki.api._
 import kuzminki.fn._
 
+/*
+  These are the same queries as in SelectDbJsonCtl
+  but here the databse returns the each row as Tuple2[String, Any]
+  that is transformed into JsValue with utils.PlayJsonLoader.
+  Note the trait PlayJson.
+*/
 
 @Singleton
 class SelectPlayJsonCtl @Inject()(
   val controllerComponents: ControllerComponents,
   val kuzminkiPlay: KuzminkiPlay
-) (implicit ec: ExecutionContext) extends BaseController
-                                     with PlayJson {
+)(implicit ec: ExecutionContext) extends BaseController
+                                    with PlayJson {
 
   implicit val db = kuzminkiPlay.db
 
@@ -35,7 +41,7 @@ class SelectPlayJsonCtl @Inject()(
         t.region
       ))
       .where(_.code === code.toUpperCase)
-      .runHeadOptAs[JsValue]
+      .runHeadOptAs[JsValue] // read into JsValue with utils.PlayJsonLoader
       .map(jsonOpt(_))
   }
 
@@ -44,8 +50,8 @@ class SelectPlayJsonCtl @Inject()(
       .select(city, country)
       .colsNamed(t => Seq(
         t.a.countryCode,
-        t.a.population,
-        "city_name" -> t.a.name,
+        t.a.population,          // use column name
+        "city_name" -> t.a.name, // define the name
         "country_name" -> t.b.name,
         t.b.continent,
         t.b.region
@@ -64,7 +70,7 @@ class SelectPlayJsonCtl @Inject()(
       .colsNamed(t => Seq(
         t.code,
         t.name,
-        sql
+        sql             // subquery as a nested object
           .select(lang)
           .colsJson(s => Seq(
             s.language,
@@ -90,12 +96,12 @@ class SelectPlayJsonCtl @Inject()(
       .colsNamed(t => Seq(
         t.code,
         t.name,
-        Fn.json(Seq(
+        Fn.json(Seq(    // put some columns in a nested object
           t.continent,
           t.region,
           t.population
         )).as("info"),
-        sql
+        sql             // subquery as a array of objects
           .select(city)
           .colsJson(s => Seq(
             s.name,
@@ -123,7 +129,7 @@ class SelectPlayJsonCtl @Inject()(
         t.region,
         t.population
       ))
-      .whereOpt(t => Seq(
+      .whereOpt(t => Seq(  // optional filters
         t.continent === params.get("cont"),
         t.region === params.get("region"),
         t.population > params.get("pop_gt").map(_.toInt),

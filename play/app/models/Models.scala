@@ -90,6 +90,20 @@ object world {
   }
 
   Model.register[Place]
+
+  class BtcPrice extends Model("btc_price") {
+    val uid = column[Long]("uid")
+    val symbol = column[String]("symbol")
+    val open = column[BigDecimal]("open")
+    val close = column[BigDecimal]("close")
+    val high = column[BigDecimal]("high")
+    val low = column[BigDecimal]("low")
+    val volBtc = column[BigDecimal]("vol_btc")
+    val volUsd = column[BigDecimal]("vol_usd")
+    val stime = column[Timestamp]("stime")
+  }
+
+  Model.register[BtcPrice]
 }
 
 

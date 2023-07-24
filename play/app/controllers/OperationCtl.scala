@@ -10,13 +10,14 @@ import models.world._
 import modules.KuzminkiPlay
 import kuzminki.api._
 
+// INSERT, UPDATE, DELETE
 
 @Singleton
 class OperationsCtl @Inject()(
   val controllerComponents: ControllerComponents,
   val kuzminkiPlay: KuzminkiPlay
-) (implicit ec: ExecutionContext) extends BaseController
-                                     with PlayJson {
+)(implicit ec: ExecutionContext) extends BaseController
+                                    with PlayJson {
 
   implicit val db = kuzminkiPlay.db
 

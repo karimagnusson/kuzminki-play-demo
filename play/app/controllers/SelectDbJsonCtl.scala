@@ -11,13 +11,18 @@ import modules.KuzminkiPlay
 import kuzminki.api._
 import kuzminki.fn._
 
+/*
+  These are the same queries as in SelectPlayJsonCtl
+  but here the databse returns the each row as JSON string
+  that is passed directly to the client. Note the trait DbJson.
+*/
 
 @Singleton
 class SelectDbJsonCtl @Inject()(
   val controllerComponents: ControllerComponents,
   val kuzminkiPlay: KuzminkiPlay
-) (implicit ec: ExecutionContext) extends BaseController
-                                     with DbJson {
+)(implicit ec: ExecutionContext) extends BaseController
+                                    with DbJson {
 
   implicit val db = kuzminkiPlay.db
 
@@ -45,8 +50,8 @@ class SelectDbJsonCtl @Inject()(
       .select(city, country)
       .colsJson(t => Seq(
         t.a.countryCode,
-        t.a.population,
-        "city_name" -> t.a.name,
+        t.a.population,          // use column name
+        "city_name" -> t.a.name, // define the name
         "country_name" -> t.b.name,
         t.b.continent,
         t.b.region
@@ -65,7 +70,7 @@ class SelectDbJsonCtl @Inject()(
       .colsJson(t => Seq(
         t.code,
         t.name,
-        sql
+        sql             // subquery as a nested object
           .select(lang)
           .colsJson(s => Seq(
             s.language,
@@ -91,12 +96,12 @@ class SelectDbJsonCtl @Inject()(
       .colsJson(t => Seq(
         t.code,
         t.name,
-        Fn.json(Seq(
+        Fn.json(Seq(    // put some columns in a nested object
           t.continent,
           t.region,
           t.population
         )).as("info"),
-        sql
+        sql             // subquery as a array of objects
           .select(city)
           .colsJson(s => Seq(
             s.name,
@@ -124,7 +129,7 @@ class SelectDbJsonCtl @Inject()(
         t.region,
         t.population
       ))
-      .whereOpt(t => Seq(
+      .whereOpt(t => Seq(  // optional filters
         t.continent === params.get("cont"),
         t.region === params.get("region"),
         t.population > params.get("pop_gt").map(_.toInt),

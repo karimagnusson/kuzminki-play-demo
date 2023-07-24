@@ -1,14 +1,16 @@
 # kuzminki-play-demo
 
-kuzminki-play-demo is an example REST API using [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) and [Play](https://github.com/playframework/playframework).
+kuzminki-play-demo is an example REST API using [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) and [Play Framework](https://github.com/playframework/playframework).
 
 This project uses Scala 2.13.8 and Play 2.8.18
 
 Examples:
 - Select, insert, update, delete
 - Cached queries
+- Subqueries
 - Jsonb field
 - Array field
+- Date/Time methods
 
 #### Setup
 

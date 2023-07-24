@@ -10,17 +10,20 @@ import models.world._
 import modules.KuzminkiPlay
 import kuzminki.api._
 
+// Examples for array field.
 
 @Singleton
 class ArrayCtl @Inject()(
   val controllerComponents: ControllerComponents,
   val kuzminkiPlay: KuzminkiPlay
-) (implicit ec: ExecutionContext) extends BaseController
-                                     with PlayJson {
+)(implicit ec: ExecutionContext) extends BaseController
+                                    with PlayJson {
 
   implicit val db = kuzminkiPlay.db
 
   val countryData = Model.get[CountryData]
+
+  // Select a row with an array field.
 
   def arrayLangs(code: String) = Action.async {
     sql
@@ -33,6 +36,8 @@ class ArrayCtl @Inject()(
       .runHeadOptAs[JsValue]
       .map(jsonOpt(_))
   }
+
+  // Add to the array, make sure "lang" occurs once and sort the array ASC.
 
   def arrayAdd = Action.async(parse.json) { request =>
 
@@ -50,6 +55,8 @@ class ArrayCtl @Inject()(
       .runHeadOptAs[JsValue]
       .map(jsonOpt(_))
   }
+
+  // Remove all instances of "lang" from the array.
 
   def arrayDel = Action.async(parse.json) { request =>
 

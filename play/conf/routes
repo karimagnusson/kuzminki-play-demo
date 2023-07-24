@@ -86,8 +86,14 @@ PATCH /array/del/lang             controllers.ArrayCtl.arrayDel
 
 # SelectTypeCtl
 
-GET /select/type/country/:code        controllers.SelectTypeCtl.selectCountry(code: String)
+GET /select/type/country/:code    controllers.SelectTypeCtl.selectCountry(code: String)
 
+# DateCtl
 
+GET /btc/hour                     controllers.DateCtl.btcHour
+
+GET /btc/quarter/avg              controllers.DateCtl.btcQuarterAvg  
+
+GET /btc/break                    controllers.DateCtl.btcBreak   
 
 
