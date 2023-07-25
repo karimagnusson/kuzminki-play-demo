@@ -28,7 +28,7 @@ class JsonbCtl @Inject()(
     sql
       .select(countryData)
       .colsNamed(t => Seq(
-        t.id,
+        t.uid,
         t.code,
         t.langs,  // array field
         t.data    // jsonb field
@@ -42,7 +42,7 @@ class JsonbCtl @Inject()(
     sql
       .select(countryData)
       .colsNamed(t => Seq(
-        t.id,
+        t.uid,
         t.code,
         t.langs,
         (t.data || t.cities).as("data") // add cities to data
@@ -56,7 +56,7 @@ class JsonbCtl @Inject()(
     sql
       .select(countryData)
       .colsNamed(t => Seq(
-        t.id,
+        t.uid,
         t.code,
         (t.data ->> "name").as("name"),
         (t.cities -> "cities" -> 0).as("largest_city")
@@ -93,7 +93,7 @@ class JsonbCtl @Inject()(
       .set(_.data += Json.obj("phone" -> phone)) // add "phone" to object
       .where(_.code === code)
       .returningNamed(t => Seq(
-        t.id,
+        t.uid,
         t.data
       ))
       .runHeadOptAs[JsValue]
@@ -109,7 +109,7 @@ class JsonbCtl @Inject()(
       .set(_.data -= "phone") // remove "phone" from the object
       .where(_.code === code)
       .returningNamed(t => Seq(
-        t.id,
+        t.uid,
         t.data
       ))
       .runHeadOptAs[JsValue]

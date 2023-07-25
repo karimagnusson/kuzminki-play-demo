@@ -23,7 +23,7 @@ class CacheCtl @Inject()(
   
   val city = Model.get[City]
   val country = Model.get[Country]
-  val lang = Model.get[Lang]
+  val language = Model.get[Language]
   val trip = Model.get[Trip]
 
   // cached queries
@@ -43,7 +43,7 @@ class CacheCtl @Inject()(
   val selectJoinStm = sql
     .select(city, country)
     .colsNamed(t => Seq(
-      t.a.countryCode,
+      t.a.code,
       t.a.population,
       "city_name" -> t.a.name,
       "country_name" -> t.b.name,
@@ -51,7 +51,7 @@ class CacheCtl @Inject()(
       t.b.continent,
       t.b.region
     ))
-    .joinOn(_.countryCode, _.code)
+    .joinOn(_.code, _.code)
     .where(t => Seq(
       t.b.continent === "Asia",
       t.b.gnp.isNotNull

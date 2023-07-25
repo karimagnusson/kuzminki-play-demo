@@ -28,7 +28,7 @@ class SelectDbJsonCtl @Inject()(
 
   val city = Model.get[City]
   val country = Model.get[Country]
-  val lang = Model.get[Lang]
+  val language = Model.get[Language]
 
 
   def selectCountry(code: String) = Action.async {
@@ -49,14 +49,14 @@ class SelectDbJsonCtl @Inject()(
     sql
       .select(city, country)
       .colsJson(t => Seq(
-        t.a.countryCode,
+        t.a.code,
         t.a.population,          // use column name
         "city_name" -> t.a.name, // define the name
         "country_name" -> t.b.name,
         t.b.continent,
         t.b.region
       ))
-      .joinOn(_.countryCode, _.code)
+      .joinOn(_.code, _.code)
       .where(_.b.code === code.toUpperCase)
       .orderBy(_.a.population.desc)
       .limit(5)
@@ -71,13 +71,13 @@ class SelectDbJsonCtl @Inject()(
         t.code,
         t.name,
         sql             // subquery as a nested object
-          .select(lang)
+          .select(language)
           .colsJson(s => Seq(
-            s.language,
+            s.name,
             s.percentage
           ))
           .where(s => Seq(
-            s.countryCode <=> t.code,
+            s.code <=> t.code,
             s.isOfficial === true
           ))
           .limit(1)
@@ -107,7 +107,7 @@ class SelectDbJsonCtl @Inject()(
             s.name,
             s.population
           ))
-          .where(_.countryCode <=> t.code)
+          .where(_.code <=> t.code)
           .orderBy(_.population.desc)
           .limit(5)
           .asColumn
