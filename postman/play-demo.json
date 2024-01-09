@@ -838,6 +838,80 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/stream/export/ethusdt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/stream/export/ethusdt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"stream",
+						"export",
+						"ethusdt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/stream/import",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/Users/karimagnusson/Jobs/Kuzminki/kz-demo/csv/eth-price.csv"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/stream/import",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"stream",
+						"import"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stream/safe/import",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/Users/karimagnusson/Jobs/Kuzminki/kuzminki-zhttp-demo/csv/eth-price.csv"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/stream/safe/import",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"stream",
+						"safe",
+						"import"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -10,90 +10,99 @@ GET     /                           controllers.HomeController.index()
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 
-# SelectPlayJsonCtl
+# SelectPlayJsonRoute
 
-GET /select/country/:code         controllers.SelectPlayJsonCtl.selectCountry(code: String)
+GET /select/country/:code         controllers.SelectPlayJsonRoute.selectCountry(code: String)
 
-GET /select/cities/:code          controllers.SelectPlayJsonCtl.selectCities(code: String)
+GET /select/cities/:code          controllers.SelectPlayJsonRoute.selectCities(code: String)
 
-GET /select/lang/:code            controllers.SelectPlayJsonCtl.selectLanguage(code: String)
+GET /select/lang/:code            controllers.SelectPlayJsonRoute.selectLanguage(code: String)
 
-GET /select/country-cities/:code  controllers.SelectPlayJsonCtl.selectCountryCities(code: String)
+GET /select/country-cities/:code  controllers.SelectPlayJsonRoute.selectCountryCities(code: String)
 
-GET /select/optional              controllers.SelectPlayJsonCtl.selectOptional
+GET /select/optional              controllers.SelectPlayJsonRoute.selectOptional
 
-GET /select/and-or/:cont          controllers.SelectPlayJsonCtl.selectAndOr(cont: String)
+GET /select/and-or/:cont          controllers.SelectPlayJsonRoute.selectAndOr(cont: String)
 
-GET /select/population/:cont      controllers.SelectPlayJsonCtl.selectPopulation(cont: String)
+GET /select/population/:cont      controllers.SelectPlayJsonRoute.selectPopulation(cont: String)
 
-# SelectDbJsonCtl
+# SelectDbJsonRoute
 
-GET /select/dbjs/country/:code         controllers.SelectDbJsonCtl.selectCountry(code: String)
+GET /select/dbjs/country/:code         controllers.SelectDbJsonRoute.selectCountry(code: String)
 
-GET /select/dbjs/cities/:code          controllers.SelectDbJsonCtl.selectCities(code: String)
+GET /select/dbjs/cities/:code          controllers.SelectDbJsonRoute.selectCities(code: String)
 
-GET /select/dbjs/lang/:code            controllers.SelectDbJsonCtl.selectLanguage(code: String)
+GET /select/dbjs/lang/:code            controllers.SelectDbJsonRoute.selectLanguage(code: String)
 
-GET /select/dbjs/country-cities/:code  controllers.SelectDbJsonCtl.selectCountryCities(code: String)
+GET /select/dbjs/country-cities/:code  controllers.SelectDbJsonRoute.selectCountryCities(code: String)
 
-GET /select/dbjs/optional              controllers.SelectDbJsonCtl.selectOptional
+GET /select/dbjs/optional              controllers.SelectDbJsonRoute.selectOptional
 
-GET /select/dbjs/and-or/:cont          controllers.SelectDbJsonCtl.selectAndOr(cont: String)
+GET /select/dbjs/and-or/:cont          controllers.SelectDbJsonRoute.selectAndOr(cont: String)
 
-GET /select/dbjs/population/:cont      controllers.SelectDbJsonCtl.selectPopulation(cont: String)
+GET /select/dbjs/population/:cont      controllers.SelectDbJsonRoute.selectPopulation(cont: String)
 
-# OperationsCtl
+# OperationsRoute
 
-POST /insert/trip                 controllers.OperationsCtl.insertTrip
+POST /insert/trip                 controllers.OperationsRoute.insertTrip
 
-PATCH /update/trip                controllers.OperationsCtl.updateTrip
+PATCH /update/trip                controllers.OperationsRoute.updateTrip
 
-DELETE /delete/trip               controllers.OperationsCtl.deleteTrip
+DELETE /delete/trip               controllers.OperationsRoute.deleteTrip
 
-# JsonbCtl
+# JsonbRoute
 
-GET /cache/select/country/:code   controllers.CacheCtl.selectCountry(code: String)
+GET /cache/select/country/:code   controllers.CacheRoute.selectCountry(code: String)
 
-GET /cache/join/:pop/:gnp         controllers.CacheCtl.selectJoin(pop: Int, gnp: Int)
+GET /cache/join/:pop/:gnp         controllers.CacheRoute.selectJoin(pop: Int, gnp: Int)
 
-POST /cache/insert/trip           controllers.CacheCtl.insertTrip
+POST /cache/insert/trip           controllers.CacheRoute.insertTrip
 
-PATCH /cache/update/trip          controllers.CacheCtl.updateTrip
+PATCH /cache/update/trip          controllers.CacheRoute.updateTrip
 
-DELETE /cache/delete/trip         controllers.CacheCtl.deleteTrip
+DELETE /cache/delete/trip         controllers.CacheRoute.deleteTrip
 
-# JsonbCtl
+# JsonbRoute
 
-GET /jsonb/country/:code          controllers.JsonbCtl.jsonbCountry(code: String)
+GET /jsonb/country/:code          controllers.JsonbRoute.jsonbCountry(code: String)
 
-GET /jsonb/capital/:name          controllers.JsonbCtl.jsonbCapital(name: String)
+GET /jsonb/capital/:name          controllers.JsonbRoute.jsonbCapital(name: String)
 
-GET /jsonb/city/population        controllers.JsonbCtl.jsonbCityPopulation
+GET /jsonb/city/population        controllers.JsonbRoute.jsonbCityPopulation
 
-GET /jsonb/capital-avg/:cont      controllers.JsonbCtl.jsonbCapitalAvg(cont: String)
+GET /jsonb/capital-avg/:cont      controllers.JsonbRoute.jsonbCapitalAvg(cont: String)
 
-PATCH /jsonb/add/phone            controllers.JsonbCtl.addPhone
+PATCH /jsonb/add/phone            controllers.JsonbRoute.addPhone
 
-PATCH /jsonb/del/phone            controllers.JsonbCtl.delPhone
+PATCH /jsonb/del/phone            controllers.JsonbRoute.delPhone
 
-# ArrayCtl
+# ArrayRoute
 
-GET /array/langs/:code            controllers.ArrayCtl.arrayLangs(code: String)
+GET /array/langs/:code            controllers.ArrayRoute.arrayLangs(code: String)
 
-PATCH /array/add/lang             controllers.ArrayCtl.arrayAdd
+PATCH /array/add/lang             controllers.ArrayRoute.arrayAdd
 
-PATCH /array/del/lang             controllers.ArrayCtl.arrayDel
+PATCH /array/del/lang             controllers.ArrayRoute.arrayDel
 
-# SelectTypeCtl
+# SelectTypeRoute
 
-GET /select/type/country/:code    controllers.SelectTypeCtl.selectCountry(code: String)
+GET /select/type/country/:code    controllers.SelectTypeRoute.selectCountry(code: String)
 
-# DateCtl
+# DateRoute
 
-GET /btc/hour                     controllers.DateCtl.btcHour
+GET /btc/hour                     controllers.DateRoute.btcHour
 
-GET /btc/quarter/avg              controllers.DateCtl.btcQuarterAvg  
+GET /btc/quarter/avg              controllers.DateRoute.btcQuarterAvg  
 
-GET /btc/break                    controllers.DateCtl.btcBreak   
+GET /btc/break                    controllers.DateRoute.btcBreak   
+
+# StreamTypeRoute
+
+GET  /stream/export/:code         controllers.StreamRoute.streamExport(code: String)
+
+POST /stream/import               controllers.StreamRoute.streamImport
+
+POST /stream/safe/import          controllers.StreamRoute.streamSafeImport
+
 
 

@@ -1,16 +1,15 @@
-name := "kuzminki-demo"
-organization := "kuzminki.io"
+name := "kuzminki-play-demo"
+organization := "kuzminki.info"
 
-version := "1.0-SNAPSHOT"
+version := "0.3"
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.13.8"
+scalaVersion := "2.13.12"
 
 libraryDependencies ++= Seq(
   guice,
-  //"org.scala-lang" % "scala-reflect" % "2.13.8",
-  //"org.postgresql" % "postgresql" % "42.2.24",
-  //"com.zaxxer" % "HikariCP" % "4.0.3" // uncomment for for own build
-  "io.github.karimagnusson" % "kuzminki-ec" % "0.9.4-RC6"
+  "io.github.karimagnusson" % "kuzminki-ec" % "0.9.4",
+  "io.github.karimagnusson" % "kuzminki-ec-pekko" % "0.9.0",
+  "io.github.karimagnusson" % "kuzminki-pekko-play" % "0.9.1"
 )
