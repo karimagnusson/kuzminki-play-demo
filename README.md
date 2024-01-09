@@ -2,7 +2,7 @@
 
 kuzminki-play-demo is an example REST API using [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) and [Play Framework](https://github.com/playframework/playframework).
 
-This project uses Scala 2.13.8 and Play 2.8.18
+This latest version uses Play 3.0.1 with [Pekko](https://pekko.apache.org/). To integrate [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) as a module it uses [kuzminki-pekko-play](https://github.com/karimagnusson/kuzminki-play). This version has an added exmple of streaming. [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) is agnostic and requires only Scala ExecutionContext. Support for Pekko streams is added with [kuzminki-ec-pekko](https://github.com/karimagnusson/kuzminki-ec-stream).
 
 Examples:
 - Select, insert, update, delete
@@ -11,6 +11,7 @@ Examples:
 - Jsonb field
 - Array field
 - Date/Time methods
+- Streaming
 
 #### Setup
 
