@@ -3,7 +3,7 @@ organization := "kuzminki.info"
 
 version := "0.3"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava)
+lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.13.12"
 
