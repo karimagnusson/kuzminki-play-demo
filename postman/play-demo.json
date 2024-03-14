@@ -54,7 +54,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9000/select/lang/FRA",
+					"raw": "http://localhost:9000/select/lang/IND",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -63,7 +63,7 @@
 					"path": [
 						"select",
 						"lang",
-						"FRA"
+						"IND"
 					]
 				}
 			},
@@ -731,28 +731,6 @@
 			"response": []
 		},
 		{
-			"name": "/select/type/country/:code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9000/select/type/country/ind",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9000",
-					"path": [
-						"select",
-						"type",
-						"country",
-						"ind"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "/btc/hour",
 			"request": {
 				"method": "GET",
@@ -868,7 +846,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/Users/karimagnusson/Jobs/Kuzminki/kz-demo/csv/eth-price.csv"
+						"src": "/Users/karimagnusson/Jobs/Kuzminki/Play/kz-demo/csv/eth-price.csv"
 					}
 				},
 				"url": {
@@ -894,7 +872,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/Users/karimagnusson/Jobs/Kuzminki/kuzminki-zhttp-demo/csv/eth-price.csv"
+						"src": "/Users/karimagnusson/Jobs/Kuzminki/Play/kz-demo/csv/eth-price.csv"
 					}
 				},
 				"url": {
@@ -908,6 +886,169 @@
 						"stream",
 						"safe",
 						"import"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/array/langs/fra",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/array/langs/fra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"array",
+						"langs",
+						"fra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/array/add/lang",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"FRA\",\n    \"lang\": \"Hindi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/array/add/lang",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"array",
+						"add",
+						"lang"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/array/del/lang",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"FRA\",\n    \"lang\": \"Hindi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/array/del/lang",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"array",
+						"del",
+						"lang"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/type/select/country/ind",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/type/select/country/ind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"type",
+						"select",
+						"country",
+						"ind"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/type/insert/trip",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cityId\": 1450,\n    \"price\": 2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/type/insert/trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"type",
+						"insert",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/type/update/trip",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3,\n    \"price\": 2500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/type/update/trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"type",
+						"update",
+						"trip"
 					]
 				}
 			},

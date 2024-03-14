@@ -7,13 +7,6 @@ import kuzminki.api._
 
 object world {
 
-  case class CountryBasic(
-    code: String,
-    name: String,
-    continent: String,
-    region: String
-  )
-
   class CountryData extends Model("country_data") {
     val uid = column[UUID]("uid")
     val code = column[String]("code")
@@ -51,8 +44,6 @@ object world {
     val headOfState = column[String]("head_of_state")
     val capitalId = column[Long]("capital_id")
     val code2 = column[String]("code2")
-
-    val basic = read[CountryBasic](code, name, continent, region)
   }
 
   Model.register[Country]

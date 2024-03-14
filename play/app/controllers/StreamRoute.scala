@@ -56,16 +56,6 @@ class StreamRoute @Inject()(
     ))
     .cache
 
-  val insertTempCoinPriceStm = sql
-    .insert(tempCoinPrice)
-    .cols4(t => (
-      t.uid,
-      t.coin,
-      t.price,
-      t.created
-    ))
-    .cache
-
   // Stream data from the database to the client.
 
   def streamExport(code: String) = Action {
@@ -78,7 +68,7 @@ class StreamRoute @Inject()(
       ))
       .where(_.coin === code.toUpperCase)
       .orderBy(_.created.asc)
-      .asSource
+      .stream
       .map(makeLine)
       .map(ByteString(_))
 
@@ -89,6 +79,7 @@ class StreamRoute @Inject()(
   }
 
   // Stream file contents to the database.
+  // file: /csv/eth-price.csv
 
   def streamImport = Action.async(parse.temporaryFile) { request =>
     FileIO
@@ -96,18 +87,18 @@ class StreamRoute @Inject()(
       .via(splitLine)
       .map(_.utf8String)
       .map(parseLine)
-      .runWith(insertCoinPriceStm.asSink)
+      .grouped(100) // insert 100 in each transaction.
+      .runWith(insertCoinPriceStm.asBatchSink)
       .map(jsonSuccess)
   }
 
-  // Stream file contents into a temporary table. If successful, move the rows to the target table, 
-  // finally delete the rows from the temp table.
+  // Stream csv file into a temporary table.
+  // If there are no errors, move the data from the temp table to the target table.
+  // Then delete the data from the temp table. 
 
   def streamSafeImport = Action.async(parse.temporaryFile) { request =>
+    
     val uid = UUID.randomUUID
-    val addUid: Tuple3[String, BigDecimal, Timestamp] => Tuple4[UUID, String, BigDecimal, Timestamp] = {
-      case (code, price, created) => (uid, code, price, created)
-    }
 
     (for {
 
@@ -116,11 +107,23 @@ class StreamRoute @Inject()(
         .via(splitLine)
         .map(_.utf8String)
         .map(parseLine)
-        .map(addUid)
-        .grouped(100) // insert 100 in each transaction.
-        .runWith(insertTempCoinPriceStm.asBatchSink)
+        .map {  // Add UUID used by the temp table.
+          case (code, price, created) =>
+            (uid, code, price, created)
+        }
+        .runWith(sql
+          .insert(tempCoinPrice)
+          .cols4(t => (
+            t.uid,
+            t.coin,
+            t.price,
+            t.created
+          ))
+          .cache
+          .asSink
+        )
 
-      _ <- sql
+      _ <- sql  // Add UUID used by the temp table.
         .insert(coinPrice)
         .cols3(t => (
           t.coin,
