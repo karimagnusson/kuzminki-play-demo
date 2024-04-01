@@ -88,7 +88,7 @@ class StreamRoute @Inject()(
       .map(_.utf8String)
       .map(parseLine)
       .grouped(100) // insert 100 in each transaction.
-      .runWith(insertCoinPriceStm.asBatchSink)
+      .runWith(insertCoinPriceStm.asChunkSink)
       .map(jsonSuccess)
   }
 
