@@ -2,11 +2,15 @@
 
 # kuzminki-play-demo
 
-Kuzminki is feature-rich query builder and access library for PostgreSQL written in Scala. It focuses on productivity by providing readable transparent syntax and making Postgres features available through the API.
+Kuzminki is a feature-rich query builder and access library for PostgreSQL. It focuses on productivity by providing readable transparent syntax and making Postgres features available through the API. Among those features are support for Array and Jsonb fields, and streaming to and from the database. See full documentation at [https://kuzminki.info/](https://kuzminki.info/).
 
-kuzminki-play-demo is an example REST API using [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) and [Play Framework](https://github.com/playframework/playframework).
+kuzminki-play-demo is an example REST API using [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) and [Play Framework](https://www.playframework.com/). Most of the example queries in this demo return rows as Play JSON. There are also examples where rows are returned from the database as a JSON string. Kuzminki has the ability to build complex JSON objects on the database using subqueries and return the result as a JSON string that can be returned directly to the client. Otherwise, the user will have to make multiple database requests and then build the JSON object from the results.
 
-This latest version uses Play 3.0.1 with [Pekko](https://pekko.apache.org/). To integrate [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) as a module it uses [kuzminki-play](https://github.com/karimagnusson/kuzminki-play). This version has an added exmple of streaming. [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) is agnostic and requires only Scala ExecutionContext. Support for Pekko streams is added with [kuzminki-pekko](https://github.com/karimagnusson/kuzminki-pekko).
+This latest version uses Play 3.0.1 with [Pekko](https://pekko.apache.org/). To use [Kuzminki](https://kuzminki.info/) with [Play](https://www.playframework.com/) as a module it uses [kuzminki-play](https://github.com/karimagnusson/kuzminki-play). It depends on [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) which is an agnostic version and requires only Scala ExecutionContext. Support for Pekko streams is added with [kuzminki-pekko](https://github.com/karimagnusson/kuzminki-pekko). Kuzminki can also be used with Play 2.9
+
+You may also be interested in [io-path](https://github.com/karimagnusson/io-path). It is simple library for working with files and folders and comes with a Play module.
+
+Feel free to send me a DM on Twitter if you have any questions.
 
 Examples:
 - Select, insert, update, delete
