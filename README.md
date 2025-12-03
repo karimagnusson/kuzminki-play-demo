@@ -2,7 +2,7 @@
 
 # kuzminki-play-demo
 
-Kuzminki is a feature-rich query builder and access library for PostgreSQL. It focuses on productivity by providing readable transparent syntax and making Postgres features available through the API. Among those features are support for Array and Jsonb fields, and streaming to and from the database. See full documentation at [https://kuzminki.info/](https://kuzminki.info/).
+Kuzminki is a feature-rich query builder and access library for PostgreSQL. It focuses on productivity by providing readable transparent syntax and making Postgres features available through the API. Among those features are support for Array and Jsonb fields, and streaming to and from the database. See full documentation at [https://kuzminki.kotturinn.com/](https://kuzminki.kotturinn.com/).
 
 kuzminki-play-demo is an example REST API using [kuzminki-ec](https://github.com/karimagnusson/kuzminki-ec) and [Play Framework](https://www.playframework.com/). Most of the example queries in this demo return rows as Play JSON. There are also examples where rows are returned from the database as a JSON string. Kuzminki has the ability to build complex JSON objects on the database using subqueries and return the result as a JSON string that can be returned directly to the client. Otherwise, the user will have to make multiple database requests and then build the JSON object from the results.
 
